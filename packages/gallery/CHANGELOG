@@ -1,0 +1,32 @@
+1.7.0
+	- Supports order by file set that is available in concrete5 5.4.1 and later.
+
+1.6.4
+	- Fixed error when running gallery on versions of concrete5 older than 5.4
+
+1.6.3
+	- Fixed error when including quotes in titles, captions
+	
+1.6.2
+	- New images are added to the top of the list, not the bottom
+	
+1.6.1
+	- Fixing the ability to choose a file attribute 
+	
+1.6 - Adding the ability to choose a file attribute in concrete 5.4 as the thumbnail.
+
+1.5.3. - Fixed problem where max thumbnails value was not honored.
+
+1.5.2. - Performance improvements by restructuring the controller script.
+
+1.5.1 - 5.3.3 comaptibility changes
+
+1.5
+- Made multiple galleries on the same page use independent popup, paging
+- Images can be ordered now.
+- Additional Caption support, including ability to set file attributes as captions. Additional caption support works for file-set-based galleries as well.
+
+1.0.1 - Replace direct json_encode call with a call to the concrete5 JSONHelper, which should ensure that older systems without json_encode can use the gallery block.
+
+
+1.0 - Initial Release
