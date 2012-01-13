@@ -17,56 +17,60 @@ $thumbnailPerRow = $thumbnailPerRow ? $thumbnailPerRow : 3;
 table.imgOptionsGrid { margin-top:4px; }
 table.imgOptionsGrid td, table.setOptionsGrid td{ vertical-align:top }
 </style>
-	<ul class="ccm-dialog-tabs tabs" id="ccm-gallery-tabs">
-		<li class="ccm-nav-active"><a href="javascript:void(0)" id="ccm-gallery-type"><?php echo t('Gallery Type')?></a></li>
-		<li><a href="javascript:void(0)" id="ccm-gallery-options"><?php echo t('Options')?></a></li>
-	</ul>
-<div id="ccm-gallery-options-tab" style="display:none">
-	<fieldset>
+<ul class="ccm-dialog-tabs tabs" id="ccm-gallery-tabs">
+	<li class="ccm-nav-active"><a href="javascript:void(0)" id="ccm-gallery-type"><?php echo t('Gallery Type')?></a></li>
+	<li><a href="javascript:void(0)" id="ccm-gallery-options"><?php echo t('Options')?></a></li>
+</ul>
+<div class="clearfix">
+	<div id="ccm-gallery-options-tab" style="display:none">
 		<div class="clearfix">
-			<label for="thumbnailWidth"><?php echo t('Thumbnail Width');?></label>
-			<div class="input">
-				<input type="text" id="thumbnailWidth" name="thumbnailWidth" value="<?php echo $thumbnailWidth?>"  />
+		<fieldset>
+			<div class="clearfix">
+				<label for="thumbnailWidth"><?php echo t('Thumbnail Width');?></label>
+				<div class="input">
+					<input type="text" id="thumbnailWidth" name="thumbnailWidth" value="<?php echo $thumbnailWidth?>"  />
+				</div>
 			</div>
-		</div>
-		<div class="clearfix">
-			<label for="thumbnailHeight"><?php echo t('Thumbnail Height');?></label>
-			<div class="input">
-				<input type="text" id="thumbnailHeight" name="thumbnailHeight" value="<?php echo $thumbnailHeight?>" />
+			<div class="clearfix">
+				<label for="thumbnailHeight"><?php echo t('Thumbnail Height');?></label>
+				<div class="input">
+					<input type="text" id="thumbnailHeight" name="thumbnailHeight" value="<?php echo $thumbnailHeight?>" />
+				</div>
 			</div>
-		</div>
-		<div class="clearfix">
-			<label for="thumbnailHeight"><?php echo t('Thumbnails Per Row');?></label>
-			<div class="input">
-				<input type="text" id="thumbnailPerRow" name="thumbnailPerRow" value="<?php echo $thumbnailPerRow?>" />
+			<div class="clearfix">
+				<label for="thumbnailHeight"><?php echo t('Thumbnails Per Row');?></label>
+				<div class="input">
+					<input type="text" id="thumbnailPerRow" name="thumbnailPerRow" value="<?php echo $thumbnailPerRow?>" />
+				</div>
 			</div>
-		</div>
-		<div class="clearfix">
-			<label for="thumbnailHeight"><?php echo t('Max Number of Thumbnails');?></label>
-			<div class="input">
-				<input type="text" id="maxThumbs" name="maxThumbs" value="<?php echo intval($maxThumbs) ?>" />
+			<div class="clearfix">
+				<label for="thumbnailHeight"><?php echo t('Max Number of Thumbnails');?></label>
+				<div class="input">
+					<input type="text" id="maxThumbs" name="maxThumbs" value="<?php echo intval($maxThumbs) ?>" />
+				</div>
 			</div>
-		</div>
-	</fieldset>
-	<?
-	$possibleThumbnailAttributes = array();
-	$attrs = FileAttributeKey::getList();
-	foreach($attrs as $fak) {
-		$fakt = $fak->getAttributeType();
-		if ($fakt->getAttributeTypeHandle() == 'image_file') {				
-			$possibleThumbnailAttributes[$fak->getAttributeKeyID()] = t('File Attribute: %s', $fak->getAttributeKeyName());
+		</fieldset>
+		</div> 
+		<?
+		$possibleThumbnailAttributes = array();
+		$attrs = FileAttributeKey::getList();
+		foreach($attrs as $fak) {
+			$fakt = $fak->getAttributeType();
+			if ($fakt->getAttributeTypeHandle() == 'image_file') {				
+				$possibleThumbnailAttributes[$fak->getAttributeKeyID()] = t('File Attribute: %s', $fak->getAttributeKeyName());
+			}
 		}
-	}
-	if (count($possibleThumbnailAttributes) > 0) { 
+		if (count($possibleThumbnailAttributes) > 0) { 
+		
+			$possibleThumbnailAttributes[0] = t('** Default');
+			ksort($possibleThumbnailAttributes);
+		
+			?>
 	
-		$possibleThumbnailAttributes[0] = t('** Default');
-		ksort($possibleThumbnailAttributes);
-	
-		?>
-
-		<label for="thumbnailAttributeKeyID"><?php echo t('Thumbnail to Use');?></label>
-		<?=Loader::helper('form')->select('thumbnailAttributeKeyID', $possibleThumbnailAttributes, $thumbnailAttributeKeyID)?>
-	<? } ?>
+			<label for="thumbnailAttributeKeyID"><?php echo t('Thumbnail to Use');?></label>
+			<?=Loader::helper('form')->select('thumbnailAttributeKeyID', $possibleThumbnailAttributes, $thumbnailAttributeKeyID)?>
+		<? } ?>
+	</div>
 </div>
 <div id="ccm-gallery-type-tab">
 	<div id="newImg">
