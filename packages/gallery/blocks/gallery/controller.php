@@ -10,6 +10,7 @@ class GalleryBlockController extends BlockController {
 	protected $btTable = 'btGallery';
 	protected $btInterfaceWidth = "550";
 	protected $btInterfaceHeight = "400";
+	protected $btWrapperClass = 'ccm-ui';
 	
 	public $defaultDuration = 5;	
 	public $defaultFadeDuration = 2;	
