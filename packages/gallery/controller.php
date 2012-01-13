@@ -5,8 +5,8 @@ defined('C5_EXECUTE') or die(_("Access Denied."));
 class GalleryPackage extends Package {
 
 	protected $pkgHandle = 'gallery';
-	protected $appVersionRequired = '5.3.2';
-	protected $pkgVersion = '1.7.0';
+	protected $appVersionRequired = '5.5';
+	protected $pkgVersion = '1.8';
 	
 	public function getPackageDescription() {
 		return t("Provides a simple photo gallery.");

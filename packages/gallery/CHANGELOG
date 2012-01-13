@@ -1,3 +1,6 @@
+1.8
+	- modified add/edit ui for concrete5.5
+	
 1.7.0
 	- Supports order by file set that is available in concrete5 5.4.1 and later.
 
