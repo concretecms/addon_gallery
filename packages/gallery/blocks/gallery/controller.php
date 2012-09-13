@@ -48,6 +48,7 @@ class GalleryBlockController extends BlockController {
 			$f = File::getByID($image['fID']);
 			$tmp['f'] = $f;
 			$tmp['caption']	= (array_key_exists('caption', $tmp) && $tmp['caption']) ? $tmp['caption'] : $f->getTitle();					
+			$gallery_json->{$tmp['fID']} = new stdClass();
 			$gallery_json->{$tmp['fID']}->src 		= $f->getRelativePath();			
 			$gallery_json->{$tmp['fID']}->caption 	= $tmp['caption'];
 			$gallery_json->meta->order[]=$tmp['fID'];
