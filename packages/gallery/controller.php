@@ -6,7 +6,7 @@ class GalleryPackage extends Package {
 
 	protected $pkgHandle = 'gallery';
 	protected $appVersionRequired = '5.5';
-	protected $pkgVersion = '1.8';
+	protected $pkgVersion = '1.8.1dev';
 	
 	public function getPackageDescription() {
 		return t("Provides a simple photo gallery.");
