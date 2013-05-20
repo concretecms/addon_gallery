@@ -6,7 +6,7 @@ class GalleryPackage extends Package {
 
 	protected $pkgHandle = 'gallery';
 	protected $appVersionRequired = '5.5';
-	protected $pkgVersion = '1.8.1dev';
+	protected $pkgVersion = '1.8.1';
 	
 	public function getPackageDescription() {
 		return t("Provides a simple photo gallery.");
@@ -23,8 +23,5 @@ class GalleryPackage extends Package {
 		BlockType::installBlockTypeFromPackage('gallery', $pkg);
 		
 	}
-
-
-
 
 }
